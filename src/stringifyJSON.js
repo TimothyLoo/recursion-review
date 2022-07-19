@@ -67,7 +67,7 @@ var stringifyJSON = function(obj) {
   if (Object.prototype.toString.call(obj) === '[object Object]') {
     for (var key in obj) {
       if(typeof obj[key] === 'function' || typeof obj[key] === 'undefined') {
-        return null;
+        return '{}';
       }
     }
     newString += '{';
