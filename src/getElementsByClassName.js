@@ -38,7 +38,7 @@ var getElementsByClassName = function(className
   }
 
   // if evaluatedElement has a class list && the class list contains className
-  if (parentNode.classList.contains(className)) {
+  if (parentNode.classList && parentNode.classList.contains(className)) {
     // push evaluatedElement to the result array
     result.push(parentNode);
   }
@@ -49,12 +49,12 @@ var getElementsByClassName = function(className
 
   // iterate through the child elements array
   if (childNodes.length > 0) {
-    childNodes.forEach(childNode) {
+    childNodes.forEach(function (childNode) {
 
       // recurisively call the getElementsByClassName function on each child node
       // and concatnate to the array assigned to the result variable
       result = result.concat(getElementsByClassName(className, childNode));
-    }
+    });
   }
 
   // return the result array
